@@ -6,7 +6,7 @@
 #
 Name     : kdav
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/kdav-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/kdav-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/kdav-18.08.0.tar.xz.sig
@@ -16,6 +16,7 @@ License  : GPL-2.0
 Requires: kdav-lib
 Requires: kdav-license
 Requires: kdav-locales
+Requires: kdav-data
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
@@ -27,10 +28,19 @@ Calendars and todos are supported, using either GroupDAV
 or CalDAV, and contacts are supported using GroupDAV or
 CardDAV.
 
+%package data
+Summary: data components for the kdav package.
+Group: Data
+
+%description data
+data components for the kdav package.
+
+
 %package dev
 Summary: dev components for the kdav package.
 Group: Development
 Requires: kdav-lib
+Requires: kdav-data
 Provides: kdav-devel
 
 %description dev
@@ -40,6 +50,7 @@ dev components for the kdav package.
 %package lib
 Summary: lib components for the kdav package.
 Group: Libraries
+Requires: kdav-data
 Requires: kdav-license
 
 %description lib
@@ -70,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535195722
+export SOURCE_DATE_EPOCH=1535427014
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -78,7 +89,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535195722
+export SOURCE_DATE_EPOCH=1535427014
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kdav
 cp COPYING %{buildroot}/usr/share/doc/kdav/COPYING
@@ -89,6 +100,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/xdg/kdav.categories
 
 %files dev
 %defattr(-,root,root,-)
