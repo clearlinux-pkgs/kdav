@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdav
-Version  : 19.04.3
-Release  : 11
-URL      : https://download.kde.org/stable/applications/19.04.3/src/kdav-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/kdav-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/kdav-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 12
+URL      : https://download.kde.org/stable/applications/19.08.0/src/kdav-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/kdav-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/kdav-19.08.0.tar.xz.sig
 Summary  : A DAV protocol implemention with KJobs
 Group    : Development/Tools
 License  : GPL-2.0
@@ -76,16 +76,17 @@ locales components for the kdav package.
 
 
 %prep
-%setup -q -n kdav-19.04.3
+%setup -q -n kdav-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562866830
+export SOURCE_DATE_EPOCH=1565896320
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -99,7 +100,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562866830
+export SOURCE_DATE_EPOCH=1565896320
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdav
 cp COPYING %{buildroot}/usr/share/package-licenses/kdav/COPYING
@@ -113,7 +114,7 @@ popd
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/xdg/kdav.categories
+/usr/share/qlogging-categories5/kdav.categories
 
 %files dev
 %defattr(-,root,root,-)
@@ -173,7 +174,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimKDAV.so.5
-/usr/lib64/libKPimKDAV.so.5.11.3
+/usr/lib64/libKPimKDAV.so.5.12.0
 
 %files license
 %defattr(0644,root,root,0755)
