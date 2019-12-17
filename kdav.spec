@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdav
-Version  : 19.08.3
-Release  : 15
-URL      : https://download.kde.org/stable/applications/19.08.3/src/kdav-19.08.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.3/src/kdav-19.08.3.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.3/src/kdav-19.08.3.tar.xz.sig
+Version  : 19.12.0
+Release  : 16
+URL      : https://download.kde.org/stable/release-service/19.12.0/src/kdav-19.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.0/src/kdav-19.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.0/src/kdav-19.12.0.tar.xz.sig
 Summary  : A DAV protocol implemention with KJobs
 Group    : Development/Tools
-License  : GPL-2.0
+License  : GPL-2.0 LGPL-2.0
 Requires: kdav-data = %{version}-%{release}
 Requires: kdav-lib = %{version}-%{release}
 Requires: kdav-license = %{version}-%{release}
@@ -22,7 +22,8 @@ BuildRequires : buildreq-kde
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-==== What's this ? ====
+# KDAV
+## What's this?
 This is an DAV protocol implemention with KJobs.
 Calendars and todos are supported, using either GroupDAV
 or CalDAV, and contacts are supported using GroupDAV or
@@ -76,14 +77,15 @@ locales components for the kdav package.
 
 
 %prep
-%setup -q -n kdav-19.08.3
+%setup -q -n kdav-19.12.0
+cd %{_builddir}/kdav-19.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573165226
+export SOURCE_DATE_EPOCH=1576549376
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -100,10 +102,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1573165226
+export SOURCE_DATE_EPOCH=1576549376
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdav
-cp %{_builddir}/kdav-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
+cp %{_builddir}/kdav-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
+cp %{_builddir}/kdav-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdav/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -132,14 +135,12 @@ popd
 /usr/include/KPim/KDAV/DavItemsFetchJob
 /usr/include/KPim/KDAV/DavItemsListJob
 /usr/include/KPim/KDAV/DavJobBase
-/usr/include/KPim/KDAV/DavManager
 /usr/include/KPim/KDAV/DavPrincipalHomesetsFetchJob
 /usr/include/KPim/KDAV/DavPrincipalSearchJob
-/usr/include/KPim/KDAV/DavProtocolBase
 /usr/include/KPim/KDAV/DavUrl
 /usr/include/KPim/KDAV/Enums
 /usr/include/KPim/KDAV/EtagCache
-/usr/include/KPim/KDAV/Utils
+/usr/include/KPim/KDAV/ProtocolInfo
 /usr/include/KPim/kdav/davcollection.h
 /usr/include/KPim/kdav/davcollectiondeletejob.h
 /usr/include/KPim/kdav/davcollectionmodifyjob.h
@@ -154,15 +155,13 @@ popd
 /usr/include/KPim/kdav/davitemsfetchjob.h
 /usr/include/KPim/kdav/davitemslistjob.h
 /usr/include/KPim/kdav/davjobbase.h
-/usr/include/KPim/kdav/davmanager.h
 /usr/include/KPim/kdav/davprincipalhomesetsfetchjob.h
 /usr/include/KPim/kdav/davprincipalsearchjob.h
-/usr/include/KPim/kdav/davprotocolbase.h
 /usr/include/KPim/kdav/davurl.h
 /usr/include/KPim/kdav/enums.h
 /usr/include/KPim/kdav/etagcache.h
 /usr/include/KPim/kdav/kpimkdav_export.h
-/usr/include/KPim/kdav/utils.h
+/usr/include/KPim/kdav/protocolinfo.h
 /usr/include/KPim/kpimkdav_version.h
 /usr/lib64/cmake/KPimKDAV/KPimKDAVConfig.cmake
 /usr/lib64/cmake/KPimKDAV/KPimKDAVConfigVersion.cmake
@@ -174,11 +173,12 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimKDAV.so.5
-/usr/lib64/libKPimKDAV.so.5.12.3
+/usr/lib64/libKPimKDAV.so.5.13.0
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
+/usr/share/package-licenses/kdav/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 
 %files locales -f libkdav.lang
 %defattr(-,root,root,-)
