@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdav
-Version  : 19.12.1
-Release  : 17
-URL      : https://download.kde.org/stable/release-service/19.12.1/src/kdav-19.12.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.1/src/kdav-19.12.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.1/src/kdav-19.12.1.tar.xz.sig
+Version  : 19.12.2
+Release  : 18
+URL      : https://download.kde.org/stable/release-service/19.12.2/src/kdav-19.12.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.2/src/kdav-19.12.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.2/src/kdav-19.12.2.tar.xz.sig
 Summary  : A DAV protocol implemention with KJobs
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0
@@ -77,15 +77,15 @@ locales components for the kdav package.
 
 
 %prep
-%setup -q -n kdav-19.12.1
-cd %{_builddir}/kdav-19.12.1
+%setup -q -n kdav-19.12.2
+cd %{_builddir}/kdav-19.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578612772
+export SOURCE_DATE_EPOCH=1581017594
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -102,11 +102,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1578612772
+export SOURCE_DATE_EPOCH=1581017594
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdav
-cp %{_builddir}/kdav-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
-cp %{_builddir}/kdav-19.12.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdav/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kdav-19.12.2/COPYING %{buildroot}/usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
+cp %{_builddir}/kdav-19.12.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdav/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -173,7 +173,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimKDAV.so.5
-/usr/lib64/libKPimKDAV.so.5.13.1
+/usr/lib64/libKPimKDAV.so.5.13.2
 
 %files license
 %defattr(0644,root,root,0755)
