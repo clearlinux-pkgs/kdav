@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdav
-Version  : 19.12.3
-Release  : 19
-URL      : https://download.kde.org/stable/release-service/19.12.3/src/kdav-19.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kdav-19.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kdav-19.12.3.tar.xz.sig
+Version  : 20.04.0
+Release  : 20
+URL      : https://download.kde.org/stable/release-service/20.04.0/src/kdav-20.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kdav-20.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kdav-20.04.0.tar.xz.sig
 Summary  : A DAV protocol implemention with KJobs
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0
@@ -77,15 +77,15 @@ locales components for the kdav package.
 
 
 %prep
-%setup -q -n kdav-19.12.3
-cd %{_builddir}/kdav-19.12.3
+%setup -q -n kdav-20.04.0
+cd %{_builddir}/kdav-20.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583441365
+export SOURCE_DATE_EPOCH=1587678750
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -102,11 +102,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583441365
+export SOURCE_DATE_EPOCH=1587678750
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdav
-cp %{_builddir}/kdav-19.12.3/COPYING %{buildroot}/usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
-cp %{_builddir}/kdav-19.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdav/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kdav-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kdav/7e52b139aa82028afadf25f4b534d2404bf97cca
+cp %{_builddir}/kdav-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdav/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -121,59 +121,59 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/KPim/KDAV/DavCollection
-/usr/include/KPim/KDAV/DavCollectionDeleteJob
-/usr/include/KPim/KDAV/DavCollectionModifyJob
-/usr/include/KPim/KDAV/DavCollectionsFetchJob
-/usr/include/KPim/KDAV/DavCollectionsMultiFetchJob
-/usr/include/KPim/KDAV/DavError
-/usr/include/KPim/KDAV/DavItem
-/usr/include/KPim/KDAV/DavItemCreateJob
-/usr/include/KPim/KDAV/DavItemDeleteJob
-/usr/include/KPim/KDAV/DavItemFetchJob
-/usr/include/KPim/KDAV/DavItemModifyJob
-/usr/include/KPim/KDAV/DavItemsFetchJob
-/usr/include/KPim/KDAV/DavItemsListJob
-/usr/include/KPim/KDAV/DavJobBase
-/usr/include/KPim/KDAV/DavPrincipalHomesetsFetchJob
-/usr/include/KPim/KDAV/DavPrincipalSearchJob
-/usr/include/KPim/KDAV/DavUrl
-/usr/include/KPim/KDAV/Enums
-/usr/include/KPim/KDAV/EtagCache
-/usr/include/KPim/KDAV/ProtocolInfo
-/usr/include/KPim/kdav/davcollection.h
-/usr/include/KPim/kdav/davcollectiondeletejob.h
-/usr/include/KPim/kdav/davcollectionmodifyjob.h
-/usr/include/KPim/kdav/davcollectionsfetchjob.h
-/usr/include/KPim/kdav/davcollectionsmultifetchjob.h
-/usr/include/KPim/kdav/daverror.h
-/usr/include/KPim/kdav/davitem.h
-/usr/include/KPim/kdav/davitemcreatejob.h
-/usr/include/KPim/kdav/davitemdeletejob.h
-/usr/include/KPim/kdav/davitemfetchjob.h
-/usr/include/KPim/kdav/davitemmodifyjob.h
-/usr/include/KPim/kdav/davitemsfetchjob.h
-/usr/include/KPim/kdav/davitemslistjob.h
-/usr/include/KPim/kdav/davjobbase.h
-/usr/include/KPim/kdav/davprincipalhomesetsfetchjob.h
-/usr/include/KPim/kdav/davprincipalsearchjob.h
-/usr/include/KPim/kdav/davurl.h
-/usr/include/KPim/kdav/enums.h
-/usr/include/KPim/kdav/etagcache.h
-/usr/include/KPim/kdav/kpimkdav_export.h
-/usr/include/KPim/kdav/protocolinfo.h
-/usr/include/KPim/kpimkdav_version.h
-/usr/lib64/cmake/KPimKDAV/KPimKDAVConfig.cmake
-/usr/lib64/cmake/KPimKDAV/KPimKDAVConfigVersion.cmake
-/usr/lib64/cmake/KPimKDAV/KPimKDAVTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/KPimKDAV/KPimKDAVTargets.cmake
-/usr/lib64/libKPimKDAV.so
+/usr/include/KF5/KDAV/DavCollection
+/usr/include/KF5/KDAV/DavCollectionDeleteJob
+/usr/include/KF5/KDAV/DavCollectionModifyJob
+/usr/include/KF5/KDAV/DavCollectionsFetchJob
+/usr/include/KF5/KDAV/DavCollectionsMultiFetchJob
+/usr/include/KF5/KDAV/DavError
+/usr/include/KF5/KDAV/DavItem
+/usr/include/KF5/KDAV/DavItemCreateJob
+/usr/include/KF5/KDAV/DavItemDeleteJob
+/usr/include/KF5/KDAV/DavItemFetchJob
+/usr/include/KF5/KDAV/DavItemModifyJob
+/usr/include/KF5/KDAV/DavItemsFetchJob
+/usr/include/KF5/KDAV/DavItemsListJob
+/usr/include/KF5/KDAV/DavJobBase
+/usr/include/KF5/KDAV/DavPrincipalHomesetsFetchJob
+/usr/include/KF5/KDAV/DavPrincipalSearchJob
+/usr/include/KF5/KDAV/DavUrl
+/usr/include/KF5/KDAV/Enums
+/usr/include/KF5/KDAV/EtagCache
+/usr/include/KF5/KDAV/ProtocolInfo
+/usr/include/KF5/kdav/davcollection.h
+/usr/include/KF5/kdav/davcollectiondeletejob.h
+/usr/include/KF5/kdav/davcollectionmodifyjob.h
+/usr/include/KF5/kdav/davcollectionsfetchjob.h
+/usr/include/KF5/kdav/davcollectionsmultifetchjob.h
+/usr/include/KF5/kdav/daverror.h
+/usr/include/KF5/kdav/davitem.h
+/usr/include/KF5/kdav/davitemcreatejob.h
+/usr/include/KF5/kdav/davitemdeletejob.h
+/usr/include/KF5/kdav/davitemfetchjob.h
+/usr/include/KF5/kdav/davitemmodifyjob.h
+/usr/include/KF5/kdav/davitemsfetchjob.h
+/usr/include/KF5/kdav/davitemslistjob.h
+/usr/include/KF5/kdav/davjobbase.h
+/usr/include/KF5/kdav/davprincipalhomesetsfetchjob.h
+/usr/include/KF5/kdav/davprincipalsearchjob.h
+/usr/include/KF5/kdav/davurl.h
+/usr/include/KF5/kdav/enums.h
+/usr/include/KF5/kdav/etagcache.h
+/usr/include/KF5/kdav/kdav_export.h
+/usr/include/KF5/kdav/protocolinfo.h
+/usr/include/KF5/kdav_version.h
+/usr/lib64/cmake/KF5DAV/KF5DAVConfig.cmake
+/usr/lib64/cmake/KF5DAV/KF5DAVConfigVersion.cmake
+/usr/lib64/cmake/KF5DAV/KF5DAVTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/KF5DAV/KF5DAVTargets.cmake
+/usr/lib64/libKF5DAV.so
 /usr/lib64/qt5/mkspecs/modules/qt_kdav.pri
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKPimKDAV.so.5
-/usr/lib64/libKPimKDAV.so.5.13.3
+/usr/lib64/libKF5DAV.so.5
+/usr/lib64/libKF5DAV.so.5.14.0
 
 %files license
 %defattr(0644,root,root,0755)
