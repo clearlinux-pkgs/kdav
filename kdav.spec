@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kdav
-Version  : 5.90.0
-Release  : 36
-URL      : https://download.kde.org/stable/frameworks/5.90/kdav-5.90.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.90/kdav-5.90.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.90/kdav-5.90.0.tar.xz.sig
+Version  : 5.91.0
+Release  : 37
+URL      : https://download.kde.org/stable/frameworks/5.91/kdav-5.91.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.91/kdav-5.91.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.91/kdav-5.91.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 LGPL-2.0
@@ -77,15 +77,15 @@ locales components for the kdav package.
 
 
 %prep
-%setup -q -n kdav-5.90.0
-cd %{_builddir}/kdav-5.90.0
+%setup -q -n kdav-5.91.0
+cd %{_builddir}/kdav-5.91.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642097186
+export SOURCE_DATE_EPOCH=1644871100
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,12 +101,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1642097186
+export SOURCE_DATE_EPOCH=1644871100
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdav
-cp %{_builddir}/kdav-5.90.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kdav/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/kdav-5.90.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdav/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/kdav-5.90.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdav/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kdav-5.91.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kdav/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kdav-5.91.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdav/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kdav-5.91.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdav/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -122,59 +122,59 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/KF5/KDAV/DavCollection
-/usr/include/KF5/KDAV/DavCollectionDeleteJob
-/usr/include/KF5/KDAV/DavCollectionModifyJob
-/usr/include/KF5/KDAV/DavCollectionsFetchJob
-/usr/include/KF5/KDAV/DavCollectionsMultiFetchJob
-/usr/include/KF5/KDAV/DavError
-/usr/include/KF5/KDAV/DavItem
-/usr/include/KF5/KDAV/DavItemCreateJob
-/usr/include/KF5/KDAV/DavItemDeleteJob
-/usr/include/KF5/KDAV/DavItemFetchJob
-/usr/include/KF5/KDAV/DavItemModifyJob
-/usr/include/KF5/KDAV/DavItemsFetchJob
-/usr/include/KF5/KDAV/DavItemsListJob
-/usr/include/KF5/KDAV/DavJobBase
-/usr/include/KF5/KDAV/DavPrincipalHomesetsFetchJob
-/usr/include/KF5/KDAV/DavPrincipalSearchJob
-/usr/include/KF5/KDAV/DavUrl
-/usr/include/KF5/KDAV/Enums
-/usr/include/KF5/KDAV/EtagCache
-/usr/include/KF5/KDAV/ProtocolInfo
-/usr/include/KF5/kdav/davcollection.h
-/usr/include/KF5/kdav/davcollectiondeletejob.h
-/usr/include/KF5/kdav/davcollectionmodifyjob.h
-/usr/include/KF5/kdav/davcollectionsfetchjob.h
-/usr/include/KF5/kdav/davcollectionsmultifetchjob.h
-/usr/include/KF5/kdav/daverror.h
-/usr/include/KF5/kdav/davitem.h
-/usr/include/KF5/kdav/davitemcreatejob.h
-/usr/include/KF5/kdav/davitemdeletejob.h
-/usr/include/KF5/kdav/davitemfetchjob.h
-/usr/include/KF5/kdav/davitemmodifyjob.h
-/usr/include/KF5/kdav/davitemsfetchjob.h
-/usr/include/KF5/kdav/davitemslistjob.h
-/usr/include/KF5/kdav/davjobbase.h
-/usr/include/KF5/kdav/davprincipalhomesetsfetchjob.h
-/usr/include/KF5/kdav/davprincipalsearchjob.h
-/usr/include/KF5/kdav/davurl.h
-/usr/include/KF5/kdav/enums.h
-/usr/include/KF5/kdav/etagcache.h
-/usr/include/KF5/kdav/kdav_export.h
-/usr/include/KF5/kdav/protocolinfo.h
+/usr/include/KF5/KDAV/KDAV/DavCollection
+/usr/include/KF5/KDAV/KDAV/DavCollectionDeleteJob
+/usr/include/KF5/KDAV/KDAV/DavCollectionModifyJob
+/usr/include/KF5/KDAV/KDAV/DavCollectionsFetchJob
+/usr/include/KF5/KDAV/KDAV/DavCollectionsMultiFetchJob
+/usr/include/KF5/KDAV/KDAV/DavError
+/usr/include/KF5/KDAV/KDAV/DavItem
+/usr/include/KF5/KDAV/KDAV/DavItemCreateJob
+/usr/include/KF5/KDAV/KDAV/DavItemDeleteJob
+/usr/include/KF5/KDAV/KDAV/DavItemFetchJob
+/usr/include/KF5/KDAV/KDAV/DavItemModifyJob
+/usr/include/KF5/KDAV/KDAV/DavItemsFetchJob
+/usr/include/KF5/KDAV/KDAV/DavItemsListJob
+/usr/include/KF5/KDAV/KDAV/DavJobBase
+/usr/include/KF5/KDAV/KDAV/DavPrincipalHomesetsFetchJob
+/usr/include/KF5/KDAV/KDAV/DavPrincipalSearchJob
+/usr/include/KF5/KDAV/KDAV/DavUrl
+/usr/include/KF5/KDAV/KDAV/Enums
+/usr/include/KF5/KDAV/KDAV/EtagCache
+/usr/include/KF5/KDAV/KDAV/ProtocolInfo
+/usr/include/KF5/KDAV/kdav/davcollection.h
+/usr/include/KF5/KDAV/kdav/davcollectiondeletejob.h
+/usr/include/KF5/KDAV/kdav/davcollectionmodifyjob.h
+/usr/include/KF5/KDAV/kdav/davcollectionsfetchjob.h
+/usr/include/KF5/KDAV/kdav/davcollectionsmultifetchjob.h
+/usr/include/KF5/KDAV/kdav/daverror.h
+/usr/include/KF5/KDAV/kdav/davitem.h
+/usr/include/KF5/KDAV/kdav/davitemcreatejob.h
+/usr/include/KF5/KDAV/kdav/davitemdeletejob.h
+/usr/include/KF5/KDAV/kdav/davitemfetchjob.h
+/usr/include/KF5/KDAV/kdav/davitemmodifyjob.h
+/usr/include/KF5/KDAV/kdav/davitemsfetchjob.h
+/usr/include/KF5/KDAV/kdav/davitemslistjob.h
+/usr/include/KF5/KDAV/kdav/davjobbase.h
+/usr/include/KF5/KDAV/kdav/davprincipalhomesetsfetchjob.h
+/usr/include/KF5/KDAV/kdav/davprincipalsearchjob.h
+/usr/include/KF5/KDAV/kdav/davurl.h
+/usr/include/KF5/KDAV/kdav/enums.h
+/usr/include/KF5/KDAV/kdav/etagcache.h
+/usr/include/KF5/KDAV/kdav/kdav_export.h
+/usr/include/KF5/KDAV/kdav/protocolinfo.h
 /usr/include/KF5/kdav_version.h
 /usr/lib64/cmake/KF5DAV/KF5DAVConfig.cmake
 /usr/lib64/cmake/KF5DAV/KF5DAVConfigVersion.cmake
 /usr/lib64/cmake/KF5DAV/KF5DAVTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5DAV/KF5DAVTargets.cmake
 /usr/lib64/libKF5DAV.so
-/usr/lib64/qt5/mkspecs/modules/qt_kdav.pri
+/usr/lib64/qt5/mkspecs/modules/qt_KDAV.pri
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5DAV.so.5
-/usr/lib64/libKF5DAV.so.5.90.0
+/usr/lib64/libKF5DAV.so.5.91.0
 
 %files license
 %defattr(0644,root,root,0755)
