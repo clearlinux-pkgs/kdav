@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kdav
-Version  : 5.109.0
-Release  : 57
-URL      : https://download.kde.org/stable/frameworks/5.109/kdav-5.109.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.109/kdav-5.109.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.109/kdav-5.109.0.tar.xz.sig
+Version  : 5.110.0
+Release  : 58
+URL      : https://download.kde.org/stable/frameworks/5.110/kdav-5.110.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.110/kdav-5.110.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.110/kdav-5.110.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 LGPL-2.0
@@ -21,7 +21,6 @@ Requires: kdav-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
-BuildRequires : kio-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -81,15 +80,15 @@ locales components for the kdav package.
 
 
 %prep
-%setup -q -n kdav-5.109.0
-cd %{_builddir}/kdav-5.109.0
+%setup -q -n kdav-5.110.0
+cd %{_builddir}/kdav-5.110.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693233008
+export SOURCE_DATE_EPOCH=1694459653
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,7 +121,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1693233008
+export SOURCE_DATE_EPOCH=1694459653
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdav
 cp %{_builddir}/kdav-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kdav/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -198,9 +197,9 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5DAV.so.5.109.0
+/V3/usr/lib64/libKF5DAV.so.5.110.0
 /usr/lib64/libKF5DAV.so.5
-/usr/lib64/libKF5DAV.so.5.109.0
+/usr/lib64/libKF5DAV.so.5.110.0
 
 %files license
 %defattr(0644,root,root,0755)
